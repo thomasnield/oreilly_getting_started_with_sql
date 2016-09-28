@@ -8,12 +8,12 @@ This book requires basic proficiency in downloading, unzipping, and navigating f
 
 If you need assistance in extracting a zipped folder, [please see this short tutorial](http://www.wikihow.com/Open-a-Zip-File).
 
-For Mac OS X, SQLiteStudio comes packaged as a DMG file. [Learn how to install a DMG here.](https://www.youtube.com/watch?v=7BrtaOfQVXQ).
+For Mac OS X, SQLiteStudio comes packaged as a DMG file. [Learn how to install a DMG here](https://www.youtube.com/watch?v=7BrtaOfQVXQ).
 
 
 ## SQliteStudio Bug Note 
 
-The recent release of SQLiteStudio 3.1.0 has a bug impacting the rounding examples. For instance, the example on Chapter 4 page 26 will produce this incorrect output.**
+The recent release of SQLiteStudio 3.1.0 has a bug impacting the rounding examples. For instance, the example on Chapter 4 page 26 will produce this incorrect output.
 
 ![](http://i.imgur.com/7uF0mph.png)
 
