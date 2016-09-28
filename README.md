@@ -1,6 +1,6 @@
 # Getting Started with SQL
 
-Thank you for reading *Getting Started with SQL*. These are the database files for the book.
+Thank you for reading *Getting Started with SQL*. These are the database files for the book. If you need assistance in extracting a zipped folder, [please see this short tutorial](http://www.wikihow.com/Open-a-Zip-File).
 
 **CRITICAL NOTE: The recent release of SQLiteStudio 3.1.0 has a bug impacting the rounding examples. For instance, the example on Chapter 4 page 26 will produce this incorrect output.**
 
