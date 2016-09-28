@@ -4,7 +4,7 @@ Thank you for reading *Getting Started with SQL*. These are the database files f
 
 ## Having Download Trouble?
 
-This book requires basic proficiency in downloading, unzipping, and navigating files and folders. But if you are needing assistance here are some resources.
+This book requires basic proficiency in downloading, unzipping, and navigating files and folders. But if you are needing assistance here are some resources:
 
 If you need assistance in extracting a zipped folder, [please see this short tutorial](http://www.wikihow.com/Open-a-Zip-File).
 
