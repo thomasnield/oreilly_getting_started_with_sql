@@ -12,7 +12,7 @@ For Mac OS X, SQLiteStudio comes packaged as a DMG file. [Learn how to install a
 
 # Setting Up on MacOS X and macOS
 
-The book's instructions were explicit on how to set up SQLiteStudio on Windows and Linux. But for Mac, the process is a bit different and I did not provide a walkthrough in the book. Until the next edition comes out, here is what to do:
+The book's instructions were explicit on how to set up SQLiteStudio on Windows and Linux. But for Mac, the process is a bit different and I did not provide a walkthrough in the book. Until another revision or edition comes out, here is what to do:
 
 Here is a link that will download a zipped folder containing everything you need, including SQLiteStudio for Mac and the database files.
 https://www.dropbox.com/s/e0d67e5wqsxsqmp/getting_started_with_sql_mac.zip?dl=1
