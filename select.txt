@@ -1,4 +1,24 @@
 select * FROM PRODUCT;
 select *,PRICE*1.07 FROM PRODUCT;
 select *,PRICE*1.07 AS TAXED_PRICE FROM PRODUCT;
-select *,round(PRICE*1.07,0) AS TAXED_PRICE FROM PRODUCT;
+select *,round(PRICE*1.07,0) AS TAXED_PRICE FROM PRODUCT
+pragma table_info('customer');
+select name, city||' '||state as location from customer; 
+select name, region|| ' ' || street_address || ',' || city || ',' || state || ',' || zip as shipping_address from customer;
+select * from station_data where year>2005 and year<2010 ;
+select * from station_data where year between 2005 and 2010;
+select * from station_data where month=3 or month=6 or month=9 or month=12;
+select * from station_data where month in (3,6,9,12);
+select * from station_data where month not in (3,6,9,12);
+select * from station_data where month%3=0;
+select * from station_data where length(report_code)=6;
+select * from station_data where report_code like 'b%';
+select * from station_data where report_code like 'b_c%';
+select * from station_data where tornado=1 and hail=1;
+select * from station_data where tornado and hail;
+select * from station_data where tornado=0 and hail;
+select * from station_data where not tornado and hail;
+select * from station_data where snow_depth is NULL;
+select report_code, coalesce(precipitation,0) as rainfall from station_data where precipitation <=0.5;
+select * from station_data where (rain=1 and temperature<=32) or snow_depth>0;
+
