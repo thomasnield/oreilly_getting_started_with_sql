@@ -21,4 +21,10 @@ select * from station_data where not tornado and hail;
 select * from station_data where snow_depth is NULL;
 select report_code, coalesce(precipitation,0) as rainfall from station_data where precipitation <=0.5;
 select * from station_data where (rain=1 and temperature<=32) or snow_depth>0;
-
+select count(*) from station_data where tornado;
+select year, month, count(*) as count from station_data group by 1;
+select * from station_data where tornado=1 group by 1,2 order by 1,4 desc;
+select year, sum(snow_depth) from station_data where year>=2000 group by year;
+select year, sum(snow_depth) as total_snow , sum(precipitation) as total_precipitation, max(precipitation) from station_data where year>=2000 and tornado group by year;
+select year, sum(precipitation) from station_data  group by year having precipitation>0.5;
+select DISTINCT STATION_NUMBER FROM STATION_DATA ORDER BY STATION_NUMBER ASC;
