@@ -1,6 +1,13 @@
 # Queries for all the examples chapter-wise
 
-## Chapter 4 **SELECT**
+# Table of Contents
+1. SELECT (#1)
+2. WHERE (#2)
+3. GROUP BY and ORDER BY
+4. CASE Statements
+5. JOIN
+
+## Chapter 4 **SELECT** <a name=1>
 
 ### Retrieving Data
 ```
@@ -25,7 +32,7 @@ select name, city||' '||state as location from customer;
 select name, region|| ' ' || street_address || ',' || city || ',' || state || ',' || zip as shipping_address from customer;
 ```
 
-## Chapter 5 **WHERE**
+## Chapter 5 **WHERE** <a name =2>
 ### Using Where on Numbers
 ```
 select * from station_data where year>2005 and year<2010 ;
