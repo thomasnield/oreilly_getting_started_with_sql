@@ -15,7 +15,8 @@ select *,round(PRICE*1.07,0) AS TAXED_PRICE FROM PRODUCT;
 ```
 
 ### Describe Table
-```ragma table_info('customer');
+```
+pragma table_info('customer');
 ```
 
 ### Text Concatenation
