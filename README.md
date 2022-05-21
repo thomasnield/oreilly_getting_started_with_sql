@@ -1,12 +1,5 @@
 # Queries for all the examples chapter-wise
 
-# Table of Contents
-1. SELECT (#1)
-2. WHERE (#2)
-3. GROUP BY and ORDER BY
-4. CASE Statements
-5. JOIN
-
 ## Chapter 4 **SELECT** <a name='1'>
 
 ### Retrieving Data
