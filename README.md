@@ -6,9 +6,9 @@
 `select * FROM PRODUCT;`
 
 ### Expressions in SELECT statements
-`select *,PRICE*1.07 FROM PRODUCT; `
-`select *,PRICE*1.07 AS TAXED_PRICE FROM PRODUCT;`
-`select *,round(PRICE*1.07,0) AS TAXED_PRICE FROM PRODUCT;`
+`select *,PRICE*1.07 FROM PRODUCT;
+select *,PRICE*1.07 AS TAXED_PRICE FROM PRODUCT;
+select *,round(PRICE*1.07,0) AS TAXED_PRICE FROM PRODUCT;`
 
 ### Describe Table
 `pragma table_info('customer');`
