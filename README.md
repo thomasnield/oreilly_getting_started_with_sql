@@ -66,6 +66,7 @@ select * from station_data where (rain=1 and temperature<=32) or snow_depth>0;
 ```
 select count(*) from station_data where tornado;
 select year, month, count(*) as count from station_data group by year;
+
 // Grouping using ordinal positions
 select count(*) from station_data where tornado;
 select year, month, count(*) as count from station_data group by 1;
@@ -89,5 +90,70 @@ select year, sum(precipitation) from station_data  group by year having precipit
 ### Getting DISTINCT Records
 ```
 select DISTINCT STATION_NUMBER FROM STATION_DATA ORDER BY STATION_NUMBER ASC;
-
 ```
+
+## Chapter 7 **CASE Statements**
+
+### The CASE Statement
+```
+select report_code,year,month,wind_speed, 
+    CASE 
+        when wind_speed>=4 then 'high' 
+        when wind_speed between 3 and 4 then 'moderate' 
+        else 'low' end as wind_severity 
+from station_data;
+
+//More efficient method
+select report_code,year,month,wind_speed, 
+CASE 
+    when wind_speed>=4 then 'high' 
+    when wind_speed >=3 then 'moderate' 
+    else 'low' 
+END AS wind_severity 
+from station_data;
+```
+
+### Grouping CASE Statements
+```
+select year, 
+CASE 
+    when wind_speed>=4 then 'high' 
+    when wind_speed >=3 then 'moderate' 
+    else 'low' 
+END AS wind_severity ,
+count(*) as count
+from station_data 
+GROUP BY 1,2;
+```
+
+### The "Zero/Null" CASE Trick
+```
+select year, month,
+sum(case 
+    when tornado=0 then precipitation
+    else 0 END)
+AS non_tornado_precipitation,
+sum(case 
+    when tornado=1 then precipitation
+    else 0 END)
+as tornado_precipitation
+from station_data
+group by year,month;
+```
+```
+select year,month,
+max(case when tornado=1 then precipitation else Null end) as max_precipitation_tornado,
+max (case when tornado=0 then precipitation else NULL end) as max_precipitation_non_tornado
+from station_data
+group by year;
+```
+```
+select month,
+avg(case when rain or hail then temperature else NULL end) as avg_preicpitation_temp,
+avg(case when not (rain or hail) then temperature else NULL end) as avg_non_precipitation_temp
+from station_data
+where year>2000
+group by month
+```
+
+## Chapter 8 **JOIN**
