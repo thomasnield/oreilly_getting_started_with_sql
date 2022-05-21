@@ -7,7 +7,7 @@
 4. CASE Statements
 5. JOIN
 
-## Chapter 4 **SELECT** <a name=1>
+## Chapter 4 **SELECT** <a name='1'>
 
 ### Retrieving Data
 ```
