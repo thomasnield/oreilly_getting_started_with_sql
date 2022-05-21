@@ -3,21 +3,21 @@
 ## Chapter 4 **SELECT**
 
 ### Retrieving Data
-```sql
+```
 select * FROM PRODUCT;```
 
 ### Expressions in SELECT statements
-```sql
+```
 select *,PRICE*1.07 FROM PRODUCT;
 select *,PRICE*1.07 AS TAXED_PRICE FROM PRODUCT;
 select *,round(PRICE*1.07,0) AS TAXED_PRICE FROM PRODUCT;```
 
 ### Describe Table
-`sql
+`
 pragma table_info('customer');`
 
 ### Text Concatenation
-```sql
+```
 select name, city||' '||state as location from customer;
 select name, region|| ' ' || street_address || ',' || city || ',' || state || ',' || zip as shipping_address from customer;```
 
