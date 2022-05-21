@@ -1,6 +1,6 @@
 # Queries for all the examples chapter-wise
 
-#Chapter 4 **SELECT** <a name='1'>
+# Chapter 4 **SELECT** <a name='1'>
 
 ### Retrieving Data
 ```
@@ -61,7 +61,7 @@ select * from station_data where snow_depth is NULL;
 select report_code, coalesce(precipitation,0) as rainfall from station_data where precipitation <=0.5;
 select * from station_data where (rain=1 and temperature<=32) or snow_depth>0;
 ```
-## Chapter 6 **GROUP BY and ORDER BY**
+# Chapter 6 **GROUP BY and ORDER BY**
 ### Grouping Records
 ```
 select count(*) from station_data where tornado;
