@@ -1,1 +1,3 @@
-This is only for my practice of the book's examples
+# Queries for all the examples chapter-wise
+
+# Chapter 9
