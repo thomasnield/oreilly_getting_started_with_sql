@@ -1,6 +1,6 @@
 # Queries for all the examples chapter-wise
 
-## Chapter 4 **SELECT** <a name='1'>
+#Chapter 4 **SELECT** <a name='1'>
 
 ### Retrieving Data
 ```
@@ -25,7 +25,7 @@ select name, city||' '||state as location from customer;
 select name, region|| ' ' || street_address || ',' || city || ',' || state || ',' || zip as shipping_address from customer;
 ```
 
-## Chapter 5 **WHERE** <a name =2>
+# Chapter 5 **WHERE** <a name =2>
 ### Using Where on Numbers
 ```
 select * from station_data where year>2005 and year<2010 ;
@@ -92,7 +92,7 @@ select year, sum(precipitation) from station_data  group by year having precipit
 select DISTINCT STATION_NUMBER FROM STATION_DATA ORDER BY STATION_NUMBER ASC;
 ```
 
-## Chapter 7 **CASE Statements**
+# Chapter 7 **CASE Statements**
 
 ### The CASE Statement
 ```
@@ -156,4 +156,4 @@ where year>2000
 group by month
 ```
 
-## Chapter 8 **JOIN**
+# Chapter 8 **JOIN**
