@@ -157,3 +157,50 @@ group by month
 ```
 
 # Chapter 8 **JOIN**
+## INNER JOIN
+```
+select order_id, customer.customer_id, order_date, ship_date, name, street_address, street_Address, city, state, zip,product_id, order_qty
+from customer inner join customer_order 
+on customer.CUSTOMER_ID= customer_order.CUSTOMER_ID;
+```
+## LEFT JOIN
+```
+select order_id, customer_id, order_date, 
+ship_date, name, street_address, street_Address, 
+city, state, zip,product_id, order_qty
+from customer LEFT join customer_order 
+on customer.CUSTOMER_ID= customer_order.CUSTOMER_ID;
+```
+```
+SELECT ORDER_ID, CUSTOMER_ID,NAME 
+FROM CUSTOMER LEFT JOIN CUSTOMER_ORDER
+ON CUSTOMER.CUSTOMER_ID = CUSTOMER_ORDER.CUSTOMER_ID
+WHERE ORDER_ID IS NULL;
+```
+## Other JOIN Types
+### RIGHT JOIN and OUTER JOIN
+Not featured in SQLite due to their highly niche nature.
+
+## Joining Multiple Tables
+```
+SELECT ORDER_ID, customer.CUSTOMER_ID, name, 
+street_address,city,state,zip,order_date,product_id,description, order_qty
+FROM CUSTOMER 
+INNER JOIN CUSTOMER_ORDER 
+ON CUSTOMER.CUSTOMER_ID = CUSTOMER_ORDER.CUSTOMER_ID 
+INNER JOIN PRODUCT
+ON CUSTOMER_ORDER.PRODUCT_ID=PRODUCT.PRODUCT_ID ;
+```
+```
+SELECT ORDER_ID, customer.CUSTOMER_ID, name, 
+street_address,city,state,zip,order_date,product_id,description, order_qty, ORDER_QTY*PRICE AS REVENUE
+FROM CUSTOMER 
+INNER JOIN CUSTOMER_ORDER 
+ON CUSTOMER.CUSTOMER_ID = CUSTOMER_ORDER.CUSTOMER_ID 
+INNER JOIN PRODUCT
+ON CUSTOMER_ORDER.PRODUCT_ID=PRODUCT.PRODUCT_ID ;
+```
+## Grouping JOINs
+```
+
+```
