@@ -202,5 +202,33 @@ ON CUSTOMER_ORDER.PRODUCT_ID=PRODUCT.PRODUCT_ID ;
 ```
 ## Grouping JOINs
 ```
-
+SELECT ORDER_ID, customer.CUSTOMER_ID, name, 
+street_address,city,state,zip,order_date,product_id,description, order_qty, sum(ORDER_QTY*PRICE) AS totalRevenue
+FROM CUSTOMER 
+INNER JOIN CUSTOMER_ORDER 
+ON CUSTOMER.CUSTOMER_ID = CUSTOMER_ORDER.CUSTOMER_ID 
+INNER JOIN PRODUCT
+ON CUSTOMER_ORDER.PRODUCT_ID=PRODUCT.PRODUCT_ID 
+group by customer.customer_id, name;
+```
+```
+SELECT ORDER_ID, customer.CUSTOMER_ID, name, 
+street_address,city,state,zip,order_date,product_id,description, order_qty, sum(ORDER_QTY*PRICE) AS totalRevenue
+FROM CUSTOMER 
+left JOIN CUSTOMER_ORDER 
+ON CUSTOMER.CUSTOMER_ID = CUSTOMER_ORDER.CUSTOMER_ID 
+LEFT JOIN PRODUCT
+ON CUSTOMER_ORDER.PRODUCT_ID=PRODUCT.PRODUCT_ID 
+group by 2,3;
+```
+*NOTE*: Upon mixing INNER and LEFT join, INNER will always win and all the NULL values will get filtered out.
+```
+SELECT ORDER_ID, customer.CUSTOMER_ID, name, 
+street_address,city,state,zip,order_date,product_id,description, order_qty, coalesce(sum(ORDER_QTY*PRICE),0) AS totalRevenue
+FROM CUSTOMER 
+left JOIN CUSTOMER_ORDER 
+ON CUSTOMER.CUSTOMER_ID = CUSTOMER_ORDER.CUSTOMER_ID 
+LEFT JOIN PRODUCT
+ON CUSTOMER_ORDER.PRODUCT_ID=PRODUCT.PRODUCT_ID 
+group by 2,3;
 ```
