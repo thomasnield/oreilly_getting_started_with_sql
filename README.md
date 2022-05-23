@@ -232,3 +232,70 @@ LEFT JOIN PRODUCT
 ON CUSTOMER_ORDER.PRODUCT_ID=PRODUCT.PRODUCT_ID 
 group by 2,3;
 ```
+# CHAPTER 9 **Database Design**
+## Creating a New Database and Tables
+```
+CREATE TABLE Company (
+    Company_Id   INTEGER      PRIMARY KEY AUTOINCREMENT,
+    Company_name VARCHAR (30) NOT NULL,
+    Description  VARCHAR (60),
+    Contact      INTEGER (10) NOT NULL
+);
+
+CREATE TABLE Attendees (
+    Attendee_Id Integer Primary key autoincrement,
+    Attendee_Name Varchar (60) NOT NULL,
+    Phone Integer (10) not null,
+    Email varchar (60),
+    VIP boolean default(0)
+);
+
+create table Room (
+    Room_Id integer primary key autoincrement,
+    Floor_No integer not null,
+    Seat_Capacity integer not null
+);
+
+create table Presentations (
+    Presentation_Id Integer primary key autoincrement,
+    Company_Id integer not null,
+    Room_Id integer not null,
+    Start_Time time,
+    End_Time time,
+    constraint fk_room
+        foreign key (room_id)
+        references room(room_id),
+    constraint fk_companies
+        foreign key(company_id)
+        references company(company_id)
+);
+
+create table Presentation_Attendance (
+    Ticket_Id integer primary key autoincrement,
+    Attendee_Id integer ,
+    Presentation_Id integer,
+    constraint fk_attendees
+        foreign key (attendee_id)
+        references attendees (attendee_id),
+    constraint fk_presentation
+        foreign key (presentation_id)
+        references presentation(presentation_id)
+    
+);
+
+```
+## Creating Views
+```
+CREATE VIEW Presentation_VW AS
+    SELECT company.company_name AS name,
+           room.room_id AS room_no,
+           room.floor_no AS floor_no,
+           room.seat_capacity AS seat_capacity,
+           start_time,
+           end_time
+      FROM presentations
+           INNER JOIN
+           company ON company.company_id = presentations.company_id
+           INNER JOIN
+           room ON room.room_id = presentations.room_id;
+```
