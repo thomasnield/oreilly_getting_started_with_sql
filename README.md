@@ -1,6 +1,6 @@
 # Queries for all the examples chapter-wise
 
-# Chapter 4 **SELECT** <a name='1'>
+# Chapter 4 **SELECT** 
 
 ### Retrieving Data
 ```
@@ -25,7 +25,7 @@ select name, city||' '||state as location from customer;
 select name, region|| ' ' || street_address || ',' || city || ',' || state || ',' || zip as shipping_address from customer;
 ```
 
-# Chapter 5 **WHERE** <a name =2>
+# Chapter 5 **WHERE** 
 ### Using Where on Numbers
 ```
 select * from station_data where year>2005 and year<2010 ;
@@ -263,23 +263,23 @@ create table Presentations (
     Start_Time time,
     End_Time time,
     constraint fk_room
-        foreign key (room_id)
-        references room(room_id),
-    constraint fk_companies
-        foreign key(company_id)
-        references company(company_id)
+    foreign key (room_id)
+    references room(room_id),
+   constraint fk_companies
+    foreign key(company_id)
+    references company(company_id)
 );
 
 create table Presentation_Attendance (
     Ticket_Id integer primary key autoincrement,
     Attendee_Id integer ,
     Presentation_Id integer,
-    constraint fk_attendees
-        foreign key (attendee_id)
-        references attendees (attendee_id),
-    constraint fk_presentation
-        foreign key (presentation_id)
-        references presentation(presentation_id)
+   constraint fk_attendees
+    foreign key (attendee_id)
+    references attendees (attendee_id),
+   constraint fk_presentation
+    foreign key (presentation_id)
+    references presentation(presentation_id)
     
 );
 
@@ -298,4 +298,83 @@ CREATE VIEW Presentation_VW AS
            company ON company.company_id = presentations.company_id
            INNER JOIN
            room ON room.room_id = presentations.room_id;
+```
+
+# CHAPTER 10 **Managing Data**
+## Insert
+```
+insert into attendee (name)
+values('arzoo');
+```
+## Multiple Inserts
+```
+insert into attendee(name)
+values
+('b'),
+('c'),
+('d');
+```
+## Testing Foreign Keys
+### Correcting Mistake- Altering table company to have a foregin key attendee_id
+```
+pragma foreign_keys=off;
+begin transaction;
+alter table company rename to company_old;
+
+CREATE TABLE company (
+    Company_Id   INTEGER      PRIMARY KEY AUTOINCREMENT,
+    Company_Name VARCHAR (30) NOT NULL,
+    Description  VARCHAR (60),
+    Attendee_Id  INTEGER      NOT NULL
+                              REFERENCES Attendees (Attendee_Id),
+    CONSTRAINT fk_Attendees FOREIGN KEY (
+        Attendee_Id
+    )
+    REFERENCES Attendees (Attendee_Id) 
+);
+
+insert into company select * from company_old;
+commit;
+pragma foreign_keys=on;
+```
+
+### Testing Foreign Keys
+The following snippet throws error : FOREIGN KEY constraint failed
+```
+insert into company (company_name, attendee_id)
+values ('rexapp solutions', 4);
+```
+The following snippet works:
+```
+insert into company (company_name, attendee_id)
+values ('rexapp solutions', 3);
+```
+
+## DELETE
+It deletes all records
+```
+delete from company where description is null;
+```
+
+## TRUNCATE TABLE
+Not supported by sqlite but it is the preferred way of deleting records in MySQL,etc.
+```
+TRUNCATE TABLE ATTENDEES;
+```
+
+## UPDATE
+```
+update attendees set email=upper(email),
+attendee_name=upper(attendee_name)
+```
+
+```
+update attendees 
+set vip=1
+where attendee_id in (1,3);
+```
+
+##  DROP TABLE
+```
+drop table company_old;
 ```
